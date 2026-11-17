@@ -1,0 +1,1 @@
+import{useEffect,useState}from'react';export function usePersistent(key,initial){const[v,set]=useState(()=>{try{return JSON.parse(localStorage.getItem(key))??initial}catch{return initial}});useEffect(()=>localStorage.setItem(key,JSON.stringify(v)),[key,v]);return[v,set]}
